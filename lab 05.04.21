@@ -1,0 +1,64 @@
+Create customer database
+> use customer
+switched to db customer
+Create collection customers
+> db.createCollection("customers")
+{ "ok" : 1 }
+
+Inserting values to the collection
+>  db.customers.insertMany([{_id:"1", cust_id:"a123", amt:500, status:"A"},{_id:"2", cust_id:"a123",amt:250,status:"A"},{_id:"3", cust_id:"b213", amt:500, status:"A"},{_id:"4",cust_id:"a123", amt:300, status:"D"}])
+{ "acknowledged" : true, "insertedIds" : [ "1", "2", "3", "4" ] }
+ 
+1.Retrieve all the customers whose account is active(A)
+Ans: 
+> db.customers.aggregate([{$match:{status:"A"}}])
+{ "_id" : "1", "cust_id" : "a123", "amt" : 500, "status" : "A" }
+{ "_id" : "2", "cust_id" : "a123", "amt" : 250, "status" : "A" }
+{ "_id" : "3", "cust_id" : "b213", "amt" : 500, "status" : "A" }
+
+2.Retrieve the customers who has max amount in the account
+Ans:
+> db.customers.aggregate([{$group:{_id:"_id", "max-val":{$max:"amt"}}}])
+{ "_id" : "_id", "max-val" : "amt" }
+
+3.For each customer count the no of account status
+Ans:
+> db.customers.aggregate([{$group:{_id:"$cust_id",count:{$sum:1}}}])
+{ "_id" : "a123", "count" : 3 }
+{ "_id" : "b213", "count" : 1 }
+
+4.Retrieve only the cust_id and status field
+Ans:
+> db.customers.aggregate([{$project:{cust_id:1, status:1}}])
+{ "_id" : "1", "cust_id" : "a123", "status" : "A" }
+{ "_id" : "2", "cust_id" : "a123", "status" : "A" }
+{ "_id" : "3", "cust_id" : "b213", "status" : "A" }
+{ "_id" : "4", "cust_id" : "a123", "status" : "D" }
+
+> db.customers.aggregate([{$project:{cust_id:1, status:1, _id:"0"}}])
+{ "cust_id" : "a123", "status" : "A", "_id" : "0" }
+{ "cust_id" : "a123", "status" : "A", "_id" : "0" }
+{ "cust_id" : "b213", "status" : "A", "_id" : "0" }
+{ "cust_id" : "a123", "status" : "D", "_id" : "0" }
+
+5.retrieve the first 3 records from the customer collection
+Ans:
+> db.customers.aggregate([{$limit:3}])
+{ "_id" : "1", "cust_id" : "a123", "amt" : "500", "status" : "A" }
+{ "_id" : "2", "cust_id" : "a123", "amt" : "250", "status" : "A" }
+{ "_id" : "3", "cust_id" : "b213", "amt" : "500", "status" : "A" }
+
+6.For every customer calculate the sum of the amount/total amount
+Ans:
+> db.customers.aggregate([{$group:{_id:"$cust_id",sum:{$sum:"$amt"}}}])
+{ "_id" : "b213", "sum" : 500 }
+{ "_id" : "a123", "sum" : 1050 }
+
+7.retrieve all the customerss with amt>=300
+Ans:
+> db.customers.aggregate([{$match:{amt:{$gte:300}}}])
+{ "_id" : "1", "cust_id" : "a123", "amt" : 500, "status" : "A" }
+{ "_id" : "3", "cust_id" : "b213", "amt" : 500, "status" : "A" }
+{ "_id" : "4", "cust_id" : "a123", "amt" : 300, "status" : "D" }
+
+
