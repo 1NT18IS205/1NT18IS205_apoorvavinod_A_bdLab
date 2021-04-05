@@ -1,39 +1,6 @@
-admin1@admin1-HP-280-G4-MT-Business-PC:~$ mongo
-MongoDB shell version v4.4.4
-connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
-Error: couldn't connect to server 127.0.0.1:27017, connection attempt failed: SocketException: Error connecting to 127.0.0.1:27017 :: caused by :: Connection refused :
-connect@src/mongo/shell/mongo.js:374:17
-@(connect):2:6
-exception: connect failed
-exiting with code 1
-admin1@admin1-HP-280-G4-MT-Business-PC:~$ ^M
-: command not found
-admin1@admin1-HP-280-G4-MT-Business-PC:~$ sudo systemctl restart mongod
-[sudo] password for admin1: 
-Sorry, try again.
-[sudo] password for admin1: 
-admin1@admin1-HP-280-G4-MT-Business-PC:~$ sudo systemctl restart mongod
-admin1@admin1-HP-280-G4-MT-Business-PC:~$ mongo
-MongoDB shell version v4.4.4
-connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
-Implicit session: session { "id" : UUID("14a5b730-5b03-40ec-bb4b-abe6d87ccd9d") }
-MongoDB server version: 4.4.4
----
-The server generated these startup warnings when booting: 
-        2021-03-24T09:47:52.758+05:30: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
-        2021-03-24T09:47:54.427+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
----
----
-        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
-        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
-
-        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
-        and anyone you share the URL with. MongoDB may use this information to make product
-        improvements and to suggest MongoDB products and deployment options to you.
-
-        To enable free monitoring, run the following command: db.enableFreeMonitoring()
-        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
----
+Lab 2
+Date: 31st March 2021
+Create Database company
 > use company
 switched to db company
 > show dbs
@@ -44,93 +11,12 @@ employee  0.000GB
 local     0.000GB
 > db
 company
+
+Create collection empDetails
 > db.createCollection("empDetails")
 { "ok" : 1 }
-> db.empDetails.insertMany([{_id1,fname:"Ashu",lname:"Bhat",age:20,email:"bhat@gmail.com",phone:9007008001,exp:4},^C
-bye
-admin1@admin1-HP-280-G4-MT-Business-PC:~$ mongo
-MongoDB shell version v4.4.4
-connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
-Implicit session: session { "id" : UUID("ff59d5df-c714-41ce-ac14-04fd83491f79") }
-MongoDB server version: 4.4.4
----
-The server generated these startup warnings when booting: 
-        2021-03-24T09:47:52.758+05:30: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
-        2021-03-24T09:47:54.427+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
----
----
-        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
-        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
 
-        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
-        and anyone you share the URL with. MongoDB may use this information to make product
-        improvements and to suggest MongoDB products and deployment options to you.
-
-        To enable free monitoring, run the following command: db.enableFreeMonitoring()
-        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
----
-> use company
-switched to db company
-> show dbs
-admin     0.000GB
-company   0.000GB
-config    0.000GB
-db        0.000GB
-employee  0.000GB
-local     0.000GB
-> db
-company
-> db.createCollection("empDetails")
-{
-	"ok" : 0,
-	"errmsg" : "Collection already exists. NS: company.empDetails",
-	"code" : 48,
-	"codeName" : "NamespaceExists"
-}
-> db.empDetails.insertMany([{_id1,fname:"Ashu",lname:"Bhat",age:20,email:"bhat@gmail.com",phone:9007008001,exp:4},{_id1,fname:"Ashu",lname:"Bhat",age:20,email:"bhat@gmail.com",phone:9007008001,exp:4},
-... 
-... 
-> ^C
-bye
-admin1@admin1-HP-280-G4-MT-Business-PC:~$ mongo
-MongoDB shell version v4.4.4
-connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
-Implicit session: session { "id" : UUID("586a2dc1-3d06-4618-90e5-e2cfb7f7e6e3") }
-MongoDB server version: 4.4.4
----
-The server generated these startup warnings when booting: 
-        2021-03-24T09:47:52.758+05:30: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
-        2021-03-24T09:47:54.427+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
----
----
-        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
-        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
-
-        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
-        and anyone you share the URL with. MongoDB may use this information to make product
-        improvements and to suggest MongoDB products and deployment options to you.
-
-        To enable free monitoring, run the following command: db.enableFreeMonitoring()
-        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
----
-> use company
-switched to db company
-> show dbs
-admin     0.000GB
-company   0.000GB
-config    0.000GB
-db        0.000GB
-employee  0.000GB
-local     0.000GB
-> db
-company
-> db.createCollection("empDetails")
-{
-	"ok" : 0,
-	"errmsg" : "Collection already exists. NS: company.empDetails",
-	"code" : 48,
-	"codeName" : "NamespaceExists"
-}
+Insert values
 > db.empDetails.insertMany([{_id:1,fname:"Ashu",lname:"Bhat",age:20,email:"bhat@gmail.com",phone:9007008001,exp:4},{_id:2,fname:"Abhi",lname:"Sharma",age:24,email:"sharma@gmail.com",phone:9665544331,exp:5},{_id:3,fname:"Jags",lname:"B",age:21,email:"jags@gmail.com",phone:9748861412,exp:6},{_id:4,fname:"Bunny",lname:"Rao",age:22,email:"bunny@gmail.com",phone:9766890412,exp:6},{_id:5,fname:"Shruthi",lname:"Naik",age:24,email:"shru@gmail.com",phone:7689345212,exp:5},{_id:6,fname:"Sara",lname:"Sudhakar",age:23,email:"sara@gmail.com",phone:6789345621,exp:5},{_id:7,fname:"Rachael",lname:"Cathe",age:22,email:"racho@gmail.com",phone:6789009988,exp:4},{_id:8,fname:"Shubha",lname:"Dev",age:18,email:"shubs@gmail.com",phone:8976453218,exp:3},{_id:9,fname:"Janu",lname:"Nag",age:19,email:"jans@gmail.com",phone:8345661412,exp:6},{_id:10,fname:"Jags",lname:"B",age:21,email:"jags@gmail.com",phone:9748861412,exp:6}])
 {
 	"acknowledged" : true,
@@ -147,6 +33,8 @@ company
 		10
 	]
 }
+
+Display the documents in formatted way
 > db.empDetails.find().pretty()
 {
 	"_id" : 1,
@@ -238,33 +126,31 @@ company
 	"phone" : 9748861412,
 	"exp" : 6
 }
-> db.test.find().pretty()
->  db.createCollection("empDetails")
-{
-	"ok" : 0,
-	"errmsg" : "Collection already exists. NS: company.empDetails",
-	"code" : 48,
-	"codeName" : "NamespaceExists"
-}
+
+Create collection test
 > db.createCollection("test")
 { "ok" : 1 }
+
+Dispaly the documents do the collection test in formatted way
 > db.test.find().pretty()
-> db.test.insertMany([{_id:1,cname:kia},{_id:2,cname:mg},{_id:3,cname:honda}])
-uncaught exception: ReferenceError: kia is not defined :
-@(shell):1:28
+
+Insert values into the collection test
 > db.test.insertMany([{_id:1,cname:"kia"},{_id:2,cname:"mg"},{_id:3,cname:"honda"}])
 { "acknowledged" : true, "insertedIds" : [ 1, 2, 3 ] }
 > db.test.find().pretty()
 { "_id" : 1, "cname" : "kia" }
 { "_id" : 2, "cname" : "mg" }
 { "_id" : 3, "cname" : "honda" }
+
+Drop the collection test
 > db.test.drop()
 true
-> db.empDetail.save({_id:1,fname:"Megz",lname:"K",age:23,email;"megz@gmail.com",phone:7896542341,exp:5})
-uncaught exception: SyntaxError: missing : after property id :
-@(shell):1:60
+
+Insert new document to empDetails with save method and replace the document with same name
 > db.empDetail.save({_id:1,fname:"Megz",lname:"K",age:23,email:"megz@gmail.com",phone:7896542341,exp:5})
 WriteResult({ "nMatched" : 0, "nUpserted" : 1, "nModified" : 0, "_id" : 1 })
+
+List all details of employee with empname Rachael
 > db.empDetails.find({fname:"Rachael"}).pretty()
 {
 	"_id" : 7,
@@ -275,6 +161,7 @@ WriteResult({ "nMatched" : 0, "nUpserted" : 1, "nModified" : 0, "_id" : 1 })
 	"phone" : 6789009988,
 	"exp" : 4
 }
+Retrieve details of employee whose last name is Naik and exp is 5 years
 > db.empDetails.find({$and:[{lname:"Naik"},{exp:5}]}).pretty()
 {
 	"_id" : 5,
@@ -285,6 +172,8 @@ WriteResult({ "nMatched" : 0, "nUpserted" : 1, "nModified" : 0, "_id" : 1 })
 	"phone" : 7689345212,
 	"exp" : 5
 }
+
+Retreive details of employee whose exp is 5 or 6 years
 > db.empDetails.find({$or:[{exp:5},{exp:6}]}).pretty()
 {
 	"_id" : 2,
@@ -349,6 +238,8 @@ WriteResult({ "nMatched" : 0, "nUpserted" : 1, "nModified" : 0, "_id" : 1 })
 	"phone" : 9748861412,
 	"exp" : 6
 }
+
+Retreive details of employee whose age is not more than 24 years
 > db.empDetails.find({age:{$ne:{$gt:24}}}).pretty()
 {
 	"_id" : 1,
@@ -440,6 +331,9 @@ WriteResult({ "nMatched" : 0, "nUpserted" : 1, "nModified" : 0, "_id" : 1 })
 	"phone" : 9748861412,
 	"exp" : 6
 }
+
+
+Retrieve details of employee whose age is not equal to 20yrs
 > db.empDetails.find({age:{$ne:20}}).pretty()
 {
 	"_id" : 2,
@@ -522,6 +416,8 @@ WriteResult({ "nMatched" : 0, "nUpserted" : 1, "nModified" : 0, "_id" : 1 })
 	"phone" : 9748861412,
 	"exp" : 6
 }
+
+Retrieve details of employee whose age is less than or equal to 20 years
 > db.empDetails.find({age:{$lte:20}}).pretty()
 {
 	"_id" : 1,
