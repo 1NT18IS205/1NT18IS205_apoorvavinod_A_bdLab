@@ -1,0 +1,192 @@
+In Compass
+create database - company
+collection -EmpDetails
+Insertion of fields
+{"_id":1,"fname":"Ashu","lname":"Bhat","age":20,"email":"bhat@gmail.com","phone":9007008001,"exp":4}{"_id":2,"fname":"Abhi","lname":"Sharma","age":24,"email":"sharma@gmail.com","phone":9665544331,"exp":5}{"_id":3,"fname":"Jags","lname":"B","age":21,"email":"jags@gmail.com","phone":9748861412,"exp":6}{"_id":4,"fname":"Bunny","lname":"Rao","age":22,"email":"bunny@gmail.com","phone":9766890412,"exp":6}{"_id":5,"fname":"Shruthi","lname":"Naik","age":24,"email":"shru@gmail.com","phone":7689345212,"exp":5}{"_id":6,"fname":"Sara","lname":"Sudhakar","age":23,"email":"sara@gmail.com","phone":"6789345621","exp":5}{"_id":7,"fname":"Rachael","lname":"Cathe","age":22,"email":"racho@gmail.com","phone":6789009988,"exp":4}{"_id":8,"fname":"Shubha","lname":"Dev","age":18,"email":"shubs@gmail.com","phone":8976453218,"exp":3}{"_id":9,"fname":"Janu","lname":"Nag","age":19,"email":"jans@gmail.com","phone":8345661412,"exp":6}{"_id":10,"fname":"Harsha","lname":"B","age":21,"email":"jags@gmail.com","phone":9748861412,"exp":6}
+
+
+Create an empty collection test
+insert many documents at a time
+{"_id":1,"cname":"kia"}
+{"_id":2,"cname":"mg"}
+{"_id":3,"cname":"honda"}
+
+list all details of employee with empname Rachael-
+query:{fname:"Rachael"}
+{
+ filter: {
+  fname: 'Rachael'
+ }
+}
+Output:{"_id":7,"fname":"Rachael","lname":"Cathe","age":22,"email":"racho@gmail.com","phone":6789009988,"exp":4}
+
+Retrieve details of employee whose last name is naik and exp is 5
+query:{$and:[{lname:"Naik"},{exp:5}]}
+{
+ filter: {
+  $and: [
+   {
+    lname: 'Naik'
+   },
+   {
+    exp: 5
+   }
+  ]
+ }
+}
+Output:{"_id":5,"fname":"Shruthi","lname":"Naik","age":24,"email":"shru@gmail.com","phone":7689345212,"exp":5} 
+
+Retreive details of employee whose exp is 5 or 6 years
+query:{$or:[{exp:5},{exp:6}]}
+{
+ filter: {
+  $or: [
+   {
+    exp: 5
+   },
+   {
+    exp: 6
+   }
+  ]
+ }
+}
+Output:{"_id":2,"fname":"Abhi","lname":"Sharma","age":24,"email":"sharma@gmail.com","phone":9665544331,"exp":5}
+{"_id":3,"fname":"Jags","lname":"B","age":21,"email":"jags@gmail.com","phone":9748861412,"exp":6}
+{"_id":4,"fname":"Bunny","lname":"Rao","age":22,"email":"bunny@gmail.com","phone":9766890412,"exp":6}
+{"_id":5,"fname":"Shruthi","lname":"Naik","age":24,"email":"shru@gmail.com","phone":7689345212,"exp":5}
+{"_id":6,"fname":"Sara","lname":"Sudhakar","age":23,"email":"sara@gmail.com","phone":"6789345621","exp":5}
+{"_id":9,"fname":"Janu","lname":"Nag","age":19,"email":"jans@gmail.com","phone":8345661412,"exp":6}
+{"_id":10,"fname":"Harsha","lname":"B","age":21,"email":"jags@gmail.com","phone":9748861412,"exp":6}
+
+Retreive details of employee whose age is not more than 24 years
+query:{age:{$ne:{$gt:24}}}
+{
+ filter: {
+  age: {
+   $ne: {
+    $gt: 24
+   }
+  }
+ }
+}
+Output:
+{"_id":1,"fname":"Ashu","lname":"Bhat","age":20,"email":"bhat@gmail.com","phone":9007008001,"exp":4}
+{"_id":2,"fname":"Abhi","lname":"Sharma","age":24,"email":"sharma@gmail.com","phone":9665544331,"exp":5}
+{"_id":3,"fname":"Jags","lname":"B","age":21,"email":"jags@gmail.com","phone":9748861412,"exp":6}
+{"_id":4,"fname":"Bunny","lname":"Rao","age":22,"email":"bunny@gmail.com","phone":9766890412,"exp":6}
+{"_id":5,"fname":"Shruthi","lname":"Naik","age":24,"email":"shru@gmail.com","phone":7689345212,"exp":5}
+{"_id":6,"fname":"Sara","lname":"Sudhakar","age":23,"email":"sara@gmail.com","phone":"6789345621","exp":5}
+{"_id":7,"fname":"Rachael","lname":"Cathe","age":22,"email":"racho@gmail.com","phone":6789009988,"exp":4}
+{"_id":8,"fname":"Shubha","lname":"Dev","age":18,"email":"shubs@gmail.com","phone":8976453218,"exp":3}
+{"_id":9,"fname":"Janu","lname":"Nag","age":19,"email":"jans@gmail.com","phone":8345661412,"exp":6}
+{"_id":10,"fname":"Harsha","lname":"B","age":21,"email":"jags@gmail.com","phone":9748861412,"exp":6}
+
+Retrieve details of employee whose age is not equal to 20yrs
+query:{age:{$ne:20}}
+{
+ filter: {
+  age: {
+   $ne: 20
+  }
+ }
+}
+Output:
+{"_id":1,"fname":"Ashu","lname":"Bhat","age":20,"email":"bhat@gmail.com","phone":9007008001,"exp":4}
+{"_id":2,"fname":"Abhi","lname":"Sharma","age":24,"email":"sharma@gmail.com","phone":9665544331,"exp":5}
+{"_id":3,"fname":"Jags","lname":"B","age":21,"email":"jags@gmail.com","phone":9748861412,"exp":6}
+{"_id":4,"fname":"Bunny","lname":"Rao","age":22,"email":"bunny@gmail.com","phone":9766890412,"exp":6}
+{"_id":5,"fname":"Shruthi","lname":"Naik","age":24,"email":"shru@gmail.com","phone":7689345212,"exp":5}
+{"_id":6,"fname":"Sara","lname":"Sudhakar","age":23,"email":"sara@gmail.com","phone":"6789345621","exp":5}
+{"_id":7,"fname":"Rachael","lname":"Cathe","age":22,"email":"racho@gmail.com","phone":6789009988,"exp":4}
+{"_id":8,"fname":"Shubha","lname":"Dev","age":18,"email":"shubs@gmail.com","phone":8976453218,"exp":3}
+{"_id":9,"fname":"Janu","lname":"Nag","age":19,"email":"jans@gmail.com","phone":8345661412,"exp":6}
+{"_id":10,"fname":"Harsha","lname":"B","age":21,"email":"jags@gmail.com","phone":9748861412,"exp":6}
+
+Retrieve details of employee whose age is less than or equal to 20 years
+query:{age:{$lte:20}}
+{
+ filter: {
+  age: {
+   $lte: 20
+  }
+ }
+}
+Output:
+{"_id":1,"fname":"Ashu","lname":"Bhat","age":20,"email":"bhat@gmail.com","phone":9007008001,"exp":4}
+{"_id":8,"fname":"Shubha","lname":"Dev","age":18,"email":"shubs@gmail.com","phone":8976453218,"exp":3}
+{"_id":9,"fname":"Janu","lname":"Nag","age":19,"email":"jans@gmail.com","phone":8345661412,"exp":6}
+
+Retrieve details of employee such that their empid is not equal to 1
+query:{_id:{$ne:1}}
+{
+ filter: {
+  _id: {
+   $ne: 1
+  }
+ }
+}
+Output:
+{"_id":2,"fname":"Abhi","lname":"Sharma","age":24,"email":"sharma@gmail.com","phone":9665544331,"exp":5}
+{"_id":3,"fname":"Jags","lname":"B","age":21,"email":"jags@gmail.com","phone":9748861412,"exp":6}
+{"_id":4,"fname":"Bunny","lname":"Rao","age":22,"email":"bunny@gmail.com","phone":9766890412,"exp":6}
+{"_id":5,"fname":"Shruthi","lname":"Naik","age":24,"email":"shru@gmail.com","phone":7689345212,"exp":5}
+{"_id":6,"fname":"Sara","lname":"Sudhakar","age":23,"email":"sara@gmail.com","phone":"6789345621","exp":5}
+{"_id":6,"fname":"Sara","lname":"Sudhakar","age":23,"email":"sara@gmail.com","phone":"6789345621","exp":5}
+{"_id":7,"fname":"Rachael","lname":"Cathe","age":22,"email":"racho@gmail.com","phone":6789009988,"exp":4}
+{"_id":8,"fname":"Shubha","lname":"Dev","age":18,"email":"shubs@gmail.com","phone":8976453218,"exp":3}
+{"_id":9,"fname":"Janu","lname":"Nag","age":19,"email":"jans@gmail.com","phone":8345661412,"exp":6}
+{"_id":10,"fname":"Harsha","lname":"B","age":21,"email":"jags@gmail.com","phone":9748861412,"exp":6}
+
+Sorting:
+{"age":-1}
+{
+ sort: {
+  age: -1
+ }
+}
+Output:
+{"_id":2,"fname":"Abhi","lname":"Sharma","age":24,"email":"sharma@gmail.com","phone":9665544331,"exp":5}
+{"_id":5,"fname":"Shruthi","lname":"Naik","age":24,"email":"shru@gmail.com","phone":7689345212,"exp":5}
+{"_id":5,"fname":"Shruthi","lname":"Naik","age":24,"email":"shru@gmail.com","phone":7689345212,"exp":5}
+{"_id":6,"fname":"Sara","lname":"Sudhakar","age":23,"email":"sara@gmail.com","phone":"6789345621","exp":5}
+{"_id":4,"fname":"Bunny","lname":"Rao","age":22,"email":"bunny@gmail.com","phone":9766890412,"exp":6}
+{"_id":7,"fname":"Rachael","lname":"Cathe","age":22,"email":"racho@gmail.com","phone":6789009988,"exp":4}
+{"_id":3,"fname":"Jags","lname":"B","age":21,"email":"jags@gmail.com","phone":9748861412,"exp":6}
+{"_id":10,"fname":"Harsha","lname":"B","age":21,"email":"jags@gmail.com","phone":9748861412,"exp":6}
+{"_id":1,"fname":"Ashu","lname":"Bhat","age":20,"email":"bhat@gmail.com","phone":9007008001,"exp":4}
+{"_id":9,"fname":"Janu","lname":"Nag","age":19,"email":"jans@gmail.com","phone":8345661412,"exp":6}
+{"_id":8,"fname":"Shubha","lname":"Dev","age":18,"email":"shubs@gmail.com","phone":8976453218,"exp":3}
+
+In terminal:
+db.empDetails.aggregate([{$group: {_id:"$age"}}])
+{ "_id" : 19 }
+{ "_id" : 26 }
+{ "_id" : 23 }
+{ "_id" : 24 }
+{ "_id" : 28 }
+{ "_id" : 27 }
+{ "_id" : 18 }
+{ "_id" : 30 }
+
+> db.empDetails.aggregate([{$sort: {age:-1}}])
+{ "_id" : 6, "Fname" : "Faizah", "Lname" : "Ali", "age" : 30, "email" : "faizah@gmail.com", "phone" : "9436466601", "exp" : 8 }
+{ "_id" : 9, "Fname" : "Teo", "Lname" : "Smith", "age" : 28, "email" : "teo@gmail.com", "phone" : "3216667182", "exp" : 10 }
+{ "_id" : 4, "Fname" : "Nikita", "Lname" : "Sharma", "age" : 27, "email" : "nsharma@gmail.com", "phone" : "3214357812", "exp" : 2 }
+{ "_id" : 1, "Fname" : "Rohan", "Lname" : "Sharma", "age" : 26, "email" : "rsharma@gmail.com", "phone" : "9007008001", "exp" : 5 }
+{ "_id" : 2, "fname" : "Rahul", "Lname" : "Roy", "age" : 24, "email" : "rahulroy@gmail.com", "phone" : "8946412341", "exp" : 6 }
+{ "_id" : 5, "Fname" : "Harsh", "Lname" : "Gupta", "age" : 24, "email" : "hargupta@gmail.com", "phone" : "3253468820", "exp" : 7 }
+{ "_id" : 10, "Fname" : "Aishwarya", "Lname" : "raj", "age" : 24, "email" : "aish@gmail.com", "phone" : "5678992463", "exp" : 4 }
+{ "_id" : 3, "Fname" : "Rachel", "Lname" : "Green", "age" : 23, "email" : "rgreen@gmail.com", "phone" : "783952399", "exp" : 3 }
+{ "_id" : 8, "Fname" : "leo", "Lname" : "brown", "age" : 19, "email" : "lbrown@gmail.com", "phone" : "7623483569", "exp" : 2 }
+{ "_id" : 7, "fname" : "Apoorva", "Lname" : "rai", "age" : 18, "email" : "apoorva@gmail.com", "phone" : "8949325441", "exp" : 1 }
+
+> db.empDetails.aggregate([{$match: {age:24}}])
+{ "_id" : 2, "fname" : "Rahul", "Lname" : "Roy", "age" : 24, "email" : "rahulroy@gmail.com", "phone" : "8946412341", "exp" : 6 }
+{ "_id" : 5, "Fname" : "Harsh", "Lname" : "Gupta", "age" : 24, "email" : "hargupta@gmail.com", "phone" : "3253468820", "exp" : 7 }
+{ "_id" : 10, "Fname" : "Aishwarya", "Lname" : "raj", "age" : 24, "email" : "aish@gmail.com", "phone" : "5678992463", "exp" : 4 }
+
+ 
+
+
+
+
