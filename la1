@@ -1,3 +1,5 @@
+Covid dataset
+
 mongoimport --type csv -d covid -c cases --headerline --drop /home/apoorva/Downloads/covid_19_data.csv
 2021-04-20T11:50:15.301+0530	connected to: localhost
 2021-04-28T11:50:15.307+0530	dropping: covid.cases
