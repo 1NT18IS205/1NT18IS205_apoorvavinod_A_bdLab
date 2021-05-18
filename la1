@@ -1,0 +1,452 @@
+mongoimport --type csv -d covid -c cases --headerline --drop /home/apoorva/Downloads/covid_19_data.csv
+2021-04-20T11:50:15.301+0530	connected to: localhost
+2021-04-28T11:50:15.307+0530	dropping: covid.cases
+2021-04-28T11:50:18.291+0530	[###.....................] covid.cases	2.56MB/16.4MB (15.6%)
+2021-04-28T11:50:21.290+0530	[#######.................] covid.cases	4.84MB/16.4MB (29.5%)
+2021-04-28T11:50:24.290+0530	[###########.............] covid.cases	7.82MB/16.4MB (47.6%)
+2021-04-28T11:50:27.569+0530	[################........] covid.cases	11.3MB/16.4MB (68.9%)
+2021-04-28T11:50:30.469+0530	[###################.....] covid.cases	13.4MB/16.4MB (82.0%)
+2021-04-28T11:50:33.291+0530	[#######################.] covid.cases	16.0MB/16.4MB (97.4%)
+2021-04-28T11:50:33.714+0530	[########################] covid.cases	16.4MB/16.4MB (100.0%)
+2021-04-28T11:50:33.714+0530	imported 236017 documents
+
+apoorva@apoorva-VirtualBox:~$ mongo
+MongoDB shell version v3.6.8
+connecting to: mongodb://127.0.0.1:27017
+Implicit session: session { "id" : UUID("3c1154c5-fe1d-4386-9b3e-5bc70b19e3a1") }
+MongoDB server version: 3.6.8
+Server has startup warnings: 
+2021-04-28T10:45:10.463+0530 I STORAGE  [initandlisten] 
+2021-04-28T10:45:04.463+0530 I STORAGE  [initandlisten] ** WARNING: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine
+2021-04-28T10:45:04.463+0530 I STORAGE  [initandlisten] **          See http://dochub.mongodb.org/core/prodnotes-filesystem
+2021-04-28T10:45:05.745+0530 I CONTROL  [initandlisten] 
+2021-04-28T10:45:05.745+0530 I CONTROL  [initandlisten] ** WARNING: Access control is not enabled for the database.
+2021-04-28T10:45:05.745+0530 I CONTROL  [initandlisten] **          Read and write access to data and configuration is unrestricted.
+2021-04-28T10:45:05.745+0530 I CONTROL  [initandlisten] 
+
+> show dbs
+admin   0.000GB
+config  0.000GB
+covid   0.000GB
+local   0.000GB
+
+> use covid
+switched to db covid
+
+> db.cases.find().pretty()
+{
+	"_id" : ObjectId("607d211f27949956e3bee1e3"),
+	"SNo" : 1,
+	"ObservationDate" : "01/22/2020",
+	"Province/State" : "Anhui",
+	"Country/Region" : "Mainland China",
+	"Last Update" : "1/22/2020 17:00",
+	"Confirmed" : 1,
+	"Deaths" : 0,
+	"Recovered" : 0
+}
+{
+	"_id" : ObjectId("607d211f27949956e3bee1e4"),
+	"SNo" : 2,
+	"ObservationDate" : "01/22/2020",
+	"Province/State" : "Beijing",
+	"Country/Region" : "Mainland China",
+	"Last Update" : "1/22/2020 17:00",
+	"Confirmed" : 14,
+	"Deaths" : 0,
+	"Recovered" : 0
+}
+{
+	"_id" : ObjectId("607d211f27949956e3bee1e5"),
+	"SNo" : 3,
+	"ObservationDate" : "01/22/2020",
+	"Province/State" : "Chongqing",
+	"Country/Region" : "Mainland China",
+	"Last Update" : "1/22/2020 17:00",
+	"Confirmed" : 6,
+	"Deaths" : 0,
+	"Recovered" : 0
+}
+{
+	"_id" : ObjectId("607d211f27949956e3bee1e6"),
+	"SNo" : 4,
+	"ObservationDate" : "01/22/2020",
+	"Province/State" : "Fujian",
+	"Country/Region" : "Mainland China",
+	"Last Update" : "1/22/2020 17:00",
+	"Confirmed" : 1,
+	"Deaths" : 0,
+	"Recovered" : 0
+}
+{
+	"_id" : ObjectId("607d211f27949956e3bee1e7"),
+	"SNo" : 5,
+	"ObservationDate" : "01/22/2020",
+	"Province/State" : "Gansu",
+	"Country/Region" : "Mainland China",
+	"Last Update" : "1/22/2020 17:00",
+	"Confirmed" : 0,
+	"Deaths" : 0,
+	"Recovered" : 0
+}
+{
+	"_id" : ObjectId("607d211f27949956e3bee1e8"),
+	"SNo" : 6,
+	"ObservationDate" : "01/22/2020",
+	"Province/State" : "Guangdong",
+	"Country/Region" : "Mainland China",
+	"Last Update" : "1/22/2020 17:00",
+	"Confirmed" : 26,
+	"Deaths" : 0,
+	"Recovered" : 0
+}
+{
+	"_id" : ObjectId("607d211f27949956e3bee1e9"),
+	"SNo" : 7,
+	"ObservationDate" : "01/22/2020",
+	"Province/State" : "Guangxi",
+	"Country/Region" : "Mainland China",
+	"Last Update" : "1/22/2020 17:00",
+	"Confirmed" : 2,
+	"Deaths" : 0,
+	"Recovered" : 0
+}
+{
+	"_id" : ObjectId("607d211f27949956e3bee1ea"),
+	"SNo" : 8,
+	"ObservationDate" : "01/22/2020",
+	"Province/State" : "Guizhou",
+	"Country/Region" : "Mainland China",
+	"Last Update" : "1/22/2020 17:00",
+	"Confirmed" : 1,
+	"Deaths" : 0,
+	"Recovered" : 0
+}
+{
+	"_id" : ObjectId("607d211f27949956e3bee1eb"),
+	"SNo" : 9,
+	"ObservationDate" : "01/22/2020",
+	"Province/State" : "Hainan",
+	"Country/Region" : "Mainland China",
+	"Last Update" : "1/22/2020 17:00",
+	"Confirmed" : 4,
+	"Deaths" : 0,
+	"Recovered" : 0
+}
+{
+	"_id" : ObjectId("607d211f27949956e3bee1ec"),
+	"SNo" : 10,
+	"ObservationDate" : "01/22/2020",
+	"Province/State" : "Hebei",
+	"Country/Region" : "Mainland China",
+	"Last Update" : "1/22/2020 17:00",
+	"Confirmed" : 1,
+	"Deaths" : 0,
+	"Recovered" : 0
+}
+{
+	"_id" : ObjectId("607d211f27949956e3bee1ed"),
+	"SNo" : 11,
+	"ObservationDate" : "01/22/2020",
+	"Province/State" : "Heilongjiang",
+	"Country/Region" : "Mainland China",
+	"Last Update" : "1/22/2020 17:00",
+	"Confirmed" : 0,
+	"Deaths" : 0,
+	"Recovered" : 0
+}
+{
+	"_id" : ObjectId("607d211f27949956e3bee1ee"),
+	"SNo" : 12,
+	"ObservationDate" : "01/22/2020",
+	"Province/State" : "Henan",
+	"Country/Region" : "Mainland China",
+	"Last Update" : "1/22/2020 17:00",
+	"Confirmed" : 5,
+	"Deaths" : 0,
+	"Recovered" : 0
+}
+{
+	"_id" : ObjectId("607d211f27949956e3bee1ef"),
+	"SNo" : 13,
+	"ObservationDate" : "01/22/2020",
+	"Province/State" : "Hong Kong",
+	"Country/Region" : "Hong Kong",
+	"Last Update" : "1/22/2020 17:00",
+	"Confirmed" : 0,
+	"Deaths" : 0,
+	"Recovered" : 0
+}
+{
+	"_id" : ObjectId("607d211f27949956e3bee1f0"),
+	"SNo" : 14,
+	"ObservationDate" : "01/22/2020",
+	"Province/State" : "Hubei",
+	"Country/Region" : "Mainland China",
+	"Last Update" : "1/22/2020 17:00",
+	"Confirmed" : 444,
+	"Deaths" : 17,
+	"Recovered" : 28
+}
+{
+	"_id" : ObjectId("607d211f27949956e3bee1f1"),
+	"SNo" : 15,
+	"ObservationDate" : "01/22/2020",
+	"Province/State" : "Hunan",
+	"Country/Region" : "Mainland China",
+	"Last Update" : "1/22/2020 17:00",
+	"Confirmed" : 4,
+	"Deaths" : 0,
+	"Recovered" : 0
+}
+{
+	"_id" : ObjectId("607d211f27949956e3bee1f2"),
+	"SNo" : 16,
+	"ObservationDate" : "01/22/2020",
+	"Province/State" : "Inner Mongolia",
+	"Country/Region" : "Mainland China",
+	"Last Update" : "1/22/2020 17:00",
+	"Confirmed" : 0,
+	"Deaths" : 0,
+	"Recovered" : 0
+}
+{
+	"_id" : ObjectId("607d211f27949956e3bee1f3"),
+	"SNo" : 17,
+	"ObservationDate" : "01/22/2020",
+	"Province/State" : "Jiangsu",
+	"Country/Region" : "Mainland China",
+	"Last Update" : "1/22/2020 17:00",
+	"Confirmed" : 1,
+	"Deaths" : 0,
+	"Recovered" : 0
+}
+{
+	"_id" : ObjectId("607d211f27949956e3bee1f4"),
+	"SNo" : 18,
+	"ObservationDate" : "01/22/2020",
+	"Province/State" : "Jiangxi",
+	"Country/Region" : "Mainland China",
+	"Last Update" : "1/22/2020 17:00",
+	"Confirmed" : 2,
+	"Deaths" : 0,
+	"Recovered" : 0
+}
+{
+	"_id" : ObjectId("607d211f27949956e3bee1f5"),
+	"SNo" : 19,
+	"ObservationDate" : "01/22/2020",
+	"Province/State" : "Jilin",
+	"Country/Region" : "Mainland China",
+	"Last Update" : "1/22/2020 17:00",
+	"Confirmed" : 0,
+	"Deaths" : 0,
+	"Recovered" : 0
+}
+{
+	"_id" : ObjectId("607d211f27949956e3bee1f6"),
+	"SNo" : 20,
+	"ObservationDate" : "01/22/2020",
+	"Province/State" : "Liaoning",
+	"Country/Region" : "Mainland China",
+	"Last Update" : "1/22/2020 17:00",
+	"Confirmed" : 2,
+	"Deaths" : 0,
+	"Recovered" : 0
+}
+
+db.cases.insert({"Sno":653,"ObservationDate":"01/22/2020","Province/State":"Goa","Country/Region":"India","Last update":"1/23/2020 18:00","Confirmed":10,"Deaths":0,"Recovered":10})
+WriteResult({ "nInserted" : 1 })
+
+> db.cases.find({"Country/Region":"India"})
+{ "_id" : ObjectId("607d211f27949956e3bee38f"), "SNo" : 431, "ObservationDate" : "01/30/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "1/30/20 16:00", "Confirmed" : 1, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee3ce"), "SNo" : 492, "ObservationDate" : "01/31/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "1/31/2020 23:59", "Confirmed" : 1, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee403"), "SNo" : 548, "ObservationDate" : "02/01/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "1/31/2020 8:15", "Confirmed" : 1, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee444"), "SNo" : 608, "ObservationDate" : "02/02/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "2020-02-02T06:03:08", "Confirmed" : 2, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee483"), "SNo" : 673, "ObservationDate" : "02/03/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "2020-02-03T21:43:02", "Confirmed" : 3, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee4c8"), "SNo" : 741, "ObservationDate" : "02/04/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "2020-02-03T21:43:02", "Confirmed" : 3, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee50d"), "SNo" : 811, "ObservationDate" : "02/05/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "2020-02-03T21:43:02", "Confirmed" : 3, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee551"), "SNo" : 882, "ObservationDate" : "02/06/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "2020-02-03T21:43:02", "Confirmed" : 3, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee59d"), "SNo" : 955, "ObservationDate" : "02/07/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "2020-02-03T21:43:02", "Confirmed" : 3, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee5e8"), "SNo" : 1027, "ObservationDate" : "02/08/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "2020-02-03T21:43:02", "Confirmed" : 3, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee62b"), "SNo" : 1099, "ObservationDate" : "02/09/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "2020-02-03T21:43:02", "Confirmed" : 3, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee674"), "SNo" : 1172, "ObservationDate" : "02/10/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "2020-02-03T21:43:02", "Confirmed" : 3, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee6c0"), "SNo" : 1244, "ObservationDate" : "02/11/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "2020-02-03T21:43:02", "Confirmed" : 3, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee705"), "SNo" : 1317, "ObservationDate" : "02/12/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "2020-02-03T21:43:02", "Confirmed" : 3, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee74e"), "SNo" : 1390, "ObservationDate" : "02/13/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "2020-02-13T18:53:02", "Confirmed" : 3, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee79b"), "SNo" : 1464, "ObservationDate" : "02/14/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "2020-02-13T18:53:02", "Confirmed" : 3, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee7e3"), "SNo" : 1539, "ObservationDate" : "02/15/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "2020-02-13T18:53:02", "Confirmed" : 3, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee831"), "SNo" : 1614, "ObservationDate" : "02/16/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "2020-02-16T07:43:02", "Confirmed" : 3, "Deaths" : 0, "Recovered" : 3 }
+{ "_id" : ObjectId("607d211f27949956e3bee879"), "SNo" : 1689, "ObservationDate" : "02/17/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "2020-02-16T07:43:02", "Confirmed" : 3, "Deaths" : 0, "Recovered" : 3 }
+{ "_id" : ObjectId("607d211f27949956e3bee8c5"), "SNo" : 1764, "ObservationDate" : "02/18/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "2020-02-16T07:43:02", "Confirmed" : 3, "Deaths" : 0, "Recovered" : 3 }
+Type "it" for more
+
+> db.cases.find({"Sno":653})
+{ "_id" : ObjectId("607d23187f5ee66129beca32"), "Sno" : 653, "ObservationDate" : "01/22/2020", "Province/State" : "Goa", "Country/Region" : "India", "Last update" : "1/23/2020 18:00", "Confirmed" : 10, "Deaths" : 0, "Recovered" : 10 }
+
+> db.cases.find({"Province/State":"Goa"})
+{ "_id" : ObjectId("607d212227949956e3bf7ace"), "SNo" : 39112, "ObservationDate" : "06/10/2020", "Province/State" : "Goa", "Country/Region" : "India", "Last Update" : "2020-06-11 03:33:41", "Confirmed" : 359, "Deaths" : 0, "Recovered" : 67 }
+{ "_id" : ObjectId("607d212227949956e3bf7da8"), "SNo" : 39839, "ObservationDate" : "06/11/2020", "Province/State" : "Goa", "Country/Region" : "India", "Last Update" : "2020-06-12 05:09:52", "Confirmed" : 417, "Deaths" : 0, "Recovered" : 67 }
+{ "_id" : ObjectId("607d212227949956e3bf8081"), "SNo" : 40570, "ObservationDate" : "06/12/2020", "Province/State" : "Goa", "Country/Region" : "India", "Last Update" : "2020-06-13 03:33:14", "Confirmed" : 417, "Deaths" : 0, "Recovered" : 67 }
+{ "_id" : ObjectId("607d212227949956e3bf835d"), "SNo" : 41301, "ObservationDate" : "06/13/2020", "Province/State" : "Goa", "Country/Region" : "India", "Last Update" : "2020-06-14 03:33:15", "Confirmed" : 463, "Deaths" : 0, "Recovered" : 69 }
+{ "_id" : ObjectId("607d212227949956e3bf863d"), "SNo" : 42032, "ObservationDate" : "06/14/2020", "Province/State" : "Goa", "Country/Region" : "India", "Last Update" : "2020-06-15 03:33:14", "Confirmed" : 523, "Deaths" : 0, "Recovered" : 70 }
+{ "_id" : ObjectId("607d212227949956e3bf8919"), "SNo" : 42763, "ObservationDate" : "06/15/2020", "Province/State" : "Goa", "Country/Region" : "India", "Last Update" : "2020-06-16 04:33:09", "Confirmed" : 592, "Deaths" : 0, "Recovered" : 85 }
+{ "_id" : ObjectId("607d212227949956e3bf8bf0"), "SNo" : 43494, "ObservationDate" : "06/16/2020", "Province/State" : "Goa", "Country/Region" : "India", "Last Update" : "2020-06-17 04:33:21", "Confirmed" : 629, "Deaths" : 0, "Recovered" : 85 }
+{ "_id" : ObjectId("607d212227949956e3bf8ecc"), "SNo" : 44225, "ObservationDate" : "06/17/2020", "Province/State" : "Goa", "Country/Region" : "India", "Last Update" : "2020-06-18 04:33:18", "Confirmed" : 656, "Deaths" : 0, "Recovered" : 96 }
+{ "_id" : ObjectId("607d212227949956e3bf91aa"), "SNo" : 44956, "ObservationDate" : "06/18/2020", "Province/State" : "Goa", "Country/Region" : "India", "Last Update" : "2020-06-19 04:33:17", "Confirmed" : 705, "Deaths" : 0, "Recovered" : 109 }
+{ "_id" : ObjectId("607d212227949956e3bf9487"), "SNo" : 45687, "ObservationDate" : "06/19/2020", "Province/State" : "Goa", "Country/Region" : "India", "Last Update" : "2020-06-20 04:33:19", "Confirmed" : 725, "Deaths" : 0, "Recovered" : 118 }
+{ "_id" : ObjectId("607d212227949956e3bf975f"), "SNo" : 46418, "ObservationDate" : "06/20/2020", "Province/State" : "Goa", "Country/Region" : "India", "Last Update" : "2020-06-21 04:33:19", "Confirmed" : 754, "Deaths" : 0, "Recovered" : 129 }
+{ "_id" : ObjectId("607d212227949956e3bf9a3c"), "SNo" : 47149, "ObservationDate" : "06/21/2020", "Province/State" : "Goa", "Country/Region" : "India", "Last Update" : "2020-06-22 04:33:20", "Confirmed" : 754, "Deaths" : 0, "Recovered" : 129 }
+{ "_id" : ObjectId("607d212227949956e3bf9d16"), "SNo" : 47880, "ObservationDate" : "06/22/2020", "Province/State" : "Goa", "Country/Region" : "India", "Last Update" : "2020-06-23 04:33:22", "Confirmed" : 864, "Deaths" : 1, "Recovered" : 152 }
+{ "_id" : ObjectId("607d212227949956e3bf9ff2"), "SNo" : 48611, "ObservationDate" : "06/23/2020", "Province/State" : "Goa", "Country/Region" : "India", "Last Update" : "2020-06-24 04:33:28", "Confirmed" : 909, "Deaths" : 1, "Recovered" : 205 }
+{ "_id" : ObjectId("607d212327949956e3bfa2d1"), "SNo" : 49342, "ObservationDate" : "06/24/2020", "Province/State" : "Goa", "Country/Region" : "India", "Last Update" : "2020-06-25 05:26:54", "Confirmed" : 951, "Deaths" : 2, "Recovered" : 289 }
+{ "_id" : ObjectId("607d212327949956e3bfa5aa"), "SNo" : 50073, "ObservationDate" : "06/25/2020", "Province/State" : "Goa", "Country/Region" : "India", "Last Update" : "2020-06-26 04:33:43", "Confirmed" : 995, "Deaths" : 2, "Recovered" : 335 }
+{ "_id" : ObjectId("607d212327949956e3bfa898"), "SNo" : 50804, "ObservationDate" : "06/26/2020", "Province/State" : "Goa", "Country/Region" : "India", "Last Update" : "2020-06-27 04:33:35", "Confirmed" : 1039, "Deaths" : 2, "Recovered" : 370 }
+{ "_id" : ObjectId("607d212327949956e3bfab65"), "SNo" : 51535, "ObservationDate" : "06/27/2020", "Province/State" : "Goa", "Country/Region" : "India", "Last Update" : "2020-06-28 04:34:04", "Confirmed" : 1128, "Deaths" : 2, "Recovered" : 420 }
+{ "_id" : ObjectId("607d212327949956e3bfae3d"), "SNo" : 52266, "ObservationDate" : "06/28/2020", "Province/State" : "Goa", "Country/Region" : "India", "Last Update" : "2020-06-29 04:33:44", "Confirmed" : 1198, "Deaths" : 3, "Recovered" : 478 }
+{ "_id" : ObjectId("607d212327949956e3bfb11c"), "SNo" : 52997, "ObservationDate" : "06/29/2020", "Province/State" : "Goa", "Country/Region" : "India", "Last Update" : "2020-06-30 04:33:48", "Confirmed" : 1198, "Deaths" : 3, "Recovered" : 478 }
+Type "it" for more
+
+> db.cases.find({"Recovered":10})
+{ "_id" : ObjectId("607d211f27949956e3bee357"), "SNo" : 376, "ObservationDate" : "01/30/2020", "Province/State" : "Guangdong", "Country/Region" : "Mainland China", "Last Update" : "1/30/20 16:00", "Confirmed" : 354, "Deaths" : 0, "Recovered" : 10 }
+{ "_id" : ObjectId("607d211f27949956e3bee3e8"), "SNo" : 505, "ObservationDate" : "02/01/2020", "Province/State" : "Shanghai", "Country/Region" : "Mainland China", "Last Update" : "2/1/2020 6:05", "Confirmed" : 169, "Deaths" : 1, "Recovered" : 10 }
+{ "_id" : ObjectId("607d211f27949956e3bee413"), "SNo" : 564, "ObservationDate" : "02/02/2020", "Province/State" : "Henan", "Country/Region" : "Mainland China", "Last Update" : "2020-02-02T18:03:05", "Confirmed" : 493, "Deaths" : 2, "Recovered" : 10 }
+{ "_id" : ObjectId("607d211f27949956e3bee41c"), "SNo" : 573, "ObservationDate" : "02/02/2020", "Province/State" : "Shanghai", "Country/Region" : "Mainland China", "Last Update" : "2020-02-02T05:53:02", "Confirmed" : 182, "Deaths" : 1, "Recovered" : 10 }
+{ "_id" : ObjectId("607d211f27949956e3bee460"), "SNo" : 640, "ObservationDate" : "02/03/2020", "Province/State" : "Shanghai", "Country/Region" : "Mainland China", "Last Update" : "2020-02-03T07:03:12", "Confirmed" : 203, "Deaths" : 1, "Recovered" : 10 }
+{ "_id" : ObjectId("607d211f27949956e3bee4a7"), "SNo" : 712, "ObservationDate" : "02/04/2020", "Province/State" : "Guangxi", "Country/Region" : "Mainland China", "Last Update" : "2020-02-04T05:53:01", "Confirmed" : 139, "Deaths" : 0, "Recovered" : 10 }
+{ "_id" : ObjectId("607d211f27949956e3bee4b4"), "SNo" : 725, "ObservationDate" : "02/04/2020", "Province/State" : "", "Country/Region" : "Thailand", "Last Update" : "2020-02-04T15:33:03", "Confirmed" : 25, "Deaths" : 0, "Recovered" : 10 }
+{ "_id" : ObjectId("607d211f27949956e3bee4fd"), "SNo" : 796, "ObservationDate" : "02/05/2020", "Province/State" : "", "Country/Region" : "Thailand", "Last Update" : "2020-02-04T15:33:03", "Confirmed" : 25, "Deaths" : 0, "Recovered" : 10 }
+{ "_id" : ObjectId("607d211f27949956e3bee543"), "SNo" : 868, "ObservationDate" : "02/06/2020", "Province/State" : "", "Country/Region" : "Thailand", "Last Update" : "2020-02-04T15:33:03", "Confirmed" : 25, "Deaths" : 0, "Recovered" : 10 }
+{ "_id" : ObjectId("607d211f27949956e3bee584"), "SNo" : 927, "ObservationDate" : "02/07/2020", "Province/State" : "Hainan", "Country/Region" : "Mainland China", "Last Update" : "2020-02-07T12:33:02", "Confirmed" : 117, "Deaths" : 2, "Recovered" : 10 }
+{ "_id" : ObjectId("607d211f27949956e3bee58d"), "SNo" : 941, "ObservationDate" : "02/07/2020", "Province/State" : "", "Country/Region" : "Thailand", "Last Update" : "2020-02-04T15:33:03", "Confirmed" : 25, "Deaths" : 0, "Recovered" : 10 }
+{ "_id" : ObjectId("607d211f27949956e3bee5d3"), "SNo" : 1011, "ObservationDate" : "02/08/2020", "Province/State" : "", "Country/Region" : "Thailand", "Last Update" : "2020-02-08T12:53:01", "Confirmed" : 32, "Deaths" : 0, "Recovered" : 10 }
+{ "_id" : ObjectId("607d211f27949956e3bee65a"), "SNo" : 1146, "ObservationDate" : "02/10/2020", "Province/State" : "Guizhou", "Country/Region" : "Mainland China", "Last Update" : "2020-02-10T12:33:02", "Confirmed" : 109, "Deaths" : 1, "Recovered" : 10 }
+{ "_id" : ObjectId("607d211f27949956e3bee6a4"), "SNo" : 1220, "ObservationDate" : "02/11/2020", "Province/State" : "Tianjin", "Country/Region" : "Mainland China", "Last Update" : "2020-02-11T23:13:05", "Confirmed" : 106, "Deaths" : 2, "Recovered" : 10 }
+{ "_id" : ObjectId("607d211f27949956e3bee7da"), "SNo" : 1520, "ObservationDate" : "02/15/2020", "Province/State" : "Xinjiang", "Country/Region" : "Mainland China", "Last Update" : "2020-02-15T09:53:01", "Confirmed" : 70, "Deaths" : 1, "Recovered" : 10 }
+{ "_id" : ObjectId("607d211f27949956e3bee86b"), "SNo" : 1675, "ObservationDate" : "02/17/2020", "Province/State" : "", "Country/Region" : "South Korea", "Last Update" : "2020-02-17T23:43:01", "Confirmed" : 30, "Deaths" : 0, "Recovered" : 10 }
+{ "_id" : ObjectId("607d211f27949956e3bee914"), "SNo" : 1821, "ObservationDate" : "02/19/2020", "Province/State" : "Inner Mongolia", "Country/Region" : "Mainland China", "Last Update" : "2020-02-19T11:03:08", "Confirmed" : 75, "Deaths" : 0, "Recovered" : 10 }
+{ "_id" : ObjectId("607d211f27949956e3beeb39"), "SNo" : 2389, "ObservationDate" : "02/26/2020", "Province/State" : "Diamond Princess cruise ship", "Country/Region" : "Others", "Last Update" : "2020-02-26T19:33:02", "Confirmed" : 705, "Deaths" : 4, "Recovered" : 10 }
+{ "_id" : ObjectId("607d211f27949956e3beeba7"), "SNo" : 2490, "ObservationDate" : "02/27/2020", "Province/State" : "Diamond Princess cruise ship", "Country/Region" : "Others", "Last Update" : "2020-02-26T19:33:02", "Confirmed" : 705, "Deaths" : 4, "Recovered" : 10 }
+{ "_id" : ObjectId("607d211f27949956e3beec09"), "SNo" : 2596, "ObservationDate" : "02/28/2020", "Province/State" : "Diamond Princess cruise ship", "Country/Region" : "Others", "Last Update" : "2020-02-28T20:53:02", "Confirmed" : 705, "Deaths" : 6, "Recovered" : 10 }
+Type "it" for more
+
+> db.cases.find({"Recovered":{$not:{$eq:10}}})
+{ "_id" : ObjectId("607d211f27949956e3bee1e3"), "SNo" : 1, "ObservationDate" : "01/22/2020", "Province/State" : "Anhui", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 1, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1e4"), "SNo" : 2, "ObservationDate" : "01/22/2020", "Province/State" : "Beijing", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 14, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1e5"), "SNo" : 3, "ObservationDate" : "01/22/2020", "Province/State" : "Chongqing", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 6, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1e6"), "SNo" : 4, "ObservationDate" : "01/22/2020", "Province/State" : "Fujian", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 1, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1e7"), "SNo" : 5, "ObservationDate" : "01/22/2020", "Province/State" : "Gansu", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 0, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1e8"), "SNo" : 6, "ObservationDate" : "01/22/2020", "Province/State" : "Guangdong", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 26, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1e9"), "SNo" : 7, "ObservationDate" : "01/22/2020", "Province/State" : "Guangxi", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 2, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1ea"), "SNo" : 8, "ObservationDate" : "01/22/2020", "Province/State" : "Guizhou", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 1, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1eb"), "SNo" : 9, "ObservationDate" : "01/22/2020", "Province/State" : "Hainan", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 4, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1ec"), "SNo" : 10, "ObservationDate" : "01/22/2020", "Province/State" : "Hebei", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 1, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1ed"), "SNo" : 11, "ObservationDate" : "01/22/2020", "Province/State" : "Heilongjiang", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 0, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1ee"), "SNo" : 12, "ObservationDate" : "01/22/2020", "Province/State" : "Henan", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 5, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1ef"), "SNo" : 13, "ObservationDate" : "01/22/2020", "Province/State" : "Hong Kong", "Country/Region" : "Hong Kong", "Last Update" : "1/22/2020 17:00", "Confirmed" : 0, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1f0"), "SNo" : 14, "ObservationDate" : "01/22/2020", "Province/State" : "Hubei", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 444, "Deaths" : 17, "Recovered" : 28 }
+{ "_id" : ObjectId("607d211f27949956e3bee1f1"), "SNo" : 15, "ObservationDate" : "01/22/2020", "Province/State" : "Hunan", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 4, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1f2"), "SNo" : 16, "ObservationDate" : "01/22/2020", "Province/State" : "Inner Mongolia", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 0, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1f3"), "SNo" : 17, "ObservationDate" : "01/22/2020", "Province/State" : "Jiangsu", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 1, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1f4"), "SNo" : 18, "ObservationDate" : "01/22/2020", "Province/State" : "Jiangxi", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 2, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1f5"), "SNo" : 19, "ObservationDate" : "01/22/2020", "Province/State" : "Jilin", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 0, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1f6"), "SNo" : 20, "ObservationDate" : "01/22/2020", "Province/State" : "Liaoning", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 2, "Deaths" : 0, "Recovered" : 0 }
+Type "it" for more
+
+> db.cases.updateOne({"Recovered":10},{$set:{Recovered:11}})
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
+> db.cases.aggregate([{$match:{"Province/State":"Goa"}},{$group:{_id:"$Recovered"}},{$sort:{Recovered:1}}])
+{ "_id" : 10 }
+{ "_id" : 53381 }
+{ "_id" : 53340 }
+{ "_id" : 53125 }
+{ "_id" : 53074 }
+{ "_id" : 53035 }
+{ "_id" : 52969 }
+{ "_id" : 52594 }
+{ "_id" : 52432 }
+{ "_id" : 52653 }
+{ "_id" : 51891 }
+{ "_id" : 51755 }
+{ "_id" : 53416 }
+{ "_id" : 52780 }
+{ "_id" : 51652 }
+{ "_id" : 51600 }
+{ "_id" : 51335 }
+{ "_id" : 51170 }
+{ "_id" : 50643 }
+{ "_id" : 50582 }
+Type "it" for more
+
+> db.cases.find().skip(3)
+{ "_id" : ObjectId("607d211f27949956e3bee1e6"), "SNo" : 4, "ObservationDate" : "01/22/2020", "Province/State" : "Fujian", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 1, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1e7"), "SNo" : 5, "ObservationDate" : "01/22/2020", "Province/State" : "Gansu", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 0, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1e8"), "SNo" : 6, "ObservationDate" : "01/22/2020", "Province/State" : "Guangdong", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 26, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1e9"), "SNo" : 7, "ObservationDate" : "01/22/2020", "Province/State" : "Guangxi", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 2, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1ea"), "SNo" : 8, "ObservationDate" : "01/22/2020", "Province/State" : "Guizhou", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 1, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1eb"), "SNo" : 9, "ObservationDate" : "01/22/2020", "Province/State" : "Hainan", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 4, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1ec"), "SNo" : 10, "ObservationDate" : "01/22/2020", "Province/State" : "Hebei", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 1, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1ed"), "SNo" : 11, "ObservationDate" : "01/22/2020", "Province/State" : "Heilongjiang", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 0, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1ee"), "SNo" : 12, "ObservationDate" : "01/22/2020", "Province/State" : "Henan", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 5, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1ef"), "SNo" : 13, "ObservationDate" : "01/22/2020", "Province/State" : "Hong Kong", "Country/Region" : "Hong Kong", "Last Update" : "1/22/2020 17:00", "Confirmed" : 0, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1f0"), "SNo" : 14, "ObservationDate" : "01/22/2020", "Province/State" : "Hubei", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 444, "Deaths" : 17, "Recovered" : 28 }
+{ "_id" : ObjectId("607d211f27949956e3bee1f1"), "SNo" : 15, "ObservationDate" : "01/22/2020", "Province/State" : "Hunan", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 4, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1f2"), "SNo" : 16, "ObservationDate" : "01/22/2020", "Province/State" : "Inner Mongolia", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 0, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1f3"), "SNo" : 17, "ObservationDate" : "01/22/2020", "Province/State" : "Jiangsu", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 1, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1f4"), "SNo" : 18, "ObservationDate" : "01/22/2020", "Province/State" : "Jiangxi", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 2, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1f5"), "SNo" : 19, "ObservationDate" : "01/22/2020", "Province/State" : "Jilin", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 0, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1f6"), "SNo" : 20, "ObservationDate" : "01/22/2020", "Province/State" : "Liaoning", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 2, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1f7"), "SNo" : 21, "ObservationDate" : "01/22/2020", "Province/State" : "Macau", "Country/Region" : "Macau", "Last Update" : "1/22/2020 17:00", "Confirmed" : 1, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1f8"), "SNo" : 22, "ObservationDate" : "01/22/2020", "Province/State" : "Ningxia", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 1, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee1f9"), "SNo" : 23, "ObservationDate" : "01/22/2020", "Province/State" : "Qinghai", "Country/Region" : "Mainland China", "Last Update" : "1/22/2020 17:00", "Confirmed" : 0, "Deaths" : 0, "Recovered" : 0 }
+Type "it" for more
+
+> db.cases.insert({"Sno":1111111111,"age":10})
+WriteResult({ "nInserted" : 1 })
+
+> db.cases.find({"age":{$exists:true}})
+{ "_id" : ObjectId("607d26637f5ee66129beca33"), "Sno" : 1111111111, "age" : 10 }
+
+> db.cases.find({"age":{$type:1}})
+{ "_id" : ObjectId("607d26637f5ee66129beca33"), "Sno" : 1111111111, "age" : 10 }
+
+> db.cases.find({"Country/Region":{$regex:"^I"}})
+{ "_id" : ObjectId("607d211f27949956e3bee2e8"), "SNo" : 265, "ObservationDate" : "01/27/2020", "Province/State" : "", "Country/Region" : "Ivory Coast", "Last Update" : "1/27/20 23:59", "Confirmed" : 1, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee38f"), "SNo" : 431, "ObservationDate" : "01/30/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "1/30/20 16:00", "Confirmed" : 1, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee3c7"), "SNo" : 481, "ObservationDate" : "01/31/2020", "Province/State" : "", "Country/Region" : "Italy", "Last Update" : "1/31/2020 23:59", "Confirmed" : 2, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee3ce"), "SNo" : 492, "ObservationDate" : "01/31/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "1/31/2020 23:59", "Confirmed" : 1, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee3fb"), "SNo" : 540, "ObservationDate" : "02/01/2020", "Province/State" : "", "Country/Region" : "Italy", "Last Update" : "1/31/2020 8:15", "Confirmed" : 2, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee403"), "SNo" : 548, "ObservationDate" : "02/01/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "1/31/2020 8:15", "Confirmed" : 1, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee444"), "SNo" : 608, "ObservationDate" : "02/02/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "2020-02-02T06:03:08", "Confirmed" : 2, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee446"), "SNo" : 609, "ObservationDate" : "02/02/2020", "Province/State" : "", "Country/Region" : "Italy", "Last Update" : "2020-01-31T08:15:53", "Confirmed" : 2, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee483"), "SNo" : 673, "ObservationDate" : "02/03/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "2020-02-03T21:43:02", "Confirmed" : 3, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee486"), "SNo" : 676, "ObservationDate" : "02/03/2020", "Province/State" : "", "Country/Region" : "Italy", "Last Update" : "2020-01-31T08:15:53", "Confirmed" : 2, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee4c8"), "SNo" : 741, "ObservationDate" : "02/04/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "2020-02-03T21:43:02", "Confirmed" : 3, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee4d0"), "SNo" : 744, "ObservationDate" : "02/04/2020", "Province/State" : "", "Country/Region" : "Italy", "Last Update" : "2020-01-31T08:15:53", "Confirmed" : 2, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee50d"), "SNo" : 811, "ObservationDate" : "02/05/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "2020-02-03T21:43:02", "Confirmed" : 3, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee510"), "SNo" : 815, "ObservationDate" : "02/05/2020", "Province/State" : "", "Country/Region" : "Italy", "Last Update" : "2020-01-31T08:15:53", "Confirmed" : 2, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee551"), "SNo" : 882, "ObservationDate" : "02/06/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "2020-02-03T21:43:02", "Confirmed" : 3, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee55a"), "SNo" : 886, "ObservationDate" : "02/06/2020", "Province/State" : "", "Country/Region" : "Italy", "Last Update" : "2020-01-31T08:15:53", "Confirmed" : 2, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee59d"), "SNo" : 955, "ObservationDate" : "02/07/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "2020-02-03T21:43:02", "Confirmed" : 3, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee5a1"), "SNo" : 956, "ObservationDate" : "02/07/2020", "Province/State" : "", "Country/Region" : "Italy", "Last Update" : "2020-02-07T17:53:02", "Confirmed" : 3, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee5e6"), "SNo" : 1028, "ObservationDate" : "02/08/2020", "Province/State" : "", "Country/Region" : "Italy", "Last Update" : "2020-02-07T17:53:02", "Confirmed" : 3, "Deaths" : 0, "Recovered" : 0 }
+{ "_id" : ObjectId("607d211f27949956e3bee5e8"), "SNo" : 1027, "ObservationDate" : "02/08/2020", "Province/State" : "", "Country/Region" : "India", "Last Update" : "2020-02-03T21:43:02", "Confirmed" : 3, "Deaths" : 0, "Recovered" : 0 }
+Type "it" for more
+
+mongoexport --collection=cases --db covid --out =/home/apoorva/Downloads/covid_data.csv
+2021-04-28T12:37:17.912+0530	connected to: localhost
+2021-04-28T12:17:18.910+0530	[........................]  covid.cases  8000/236019  (3.4%)
+2021-04-28T12:37:19.910+0530	[###.....................]  covid.cases  32000/236019  (13.6%)
+2021-04-28T12:37:20.910+0530	[####....................]  covid.cases  48000/236019  (20.3%)
+2021-04-28T12:37:21.909+0530	[#######.................]  covid.cases  72000/236019  (30.5%)
+2021-04-28T12:37:22.909+0530	[########................]  covid.cases  88000/236019  (37.3%)
+2021-04-28T12:37:23.911+0530	[###########.............]  covid.cases  112000/236019  (47.5%)
+2021-04-28T12:37:24.909+0530	[#############...........]  covid.cases  128000/236019  (54.2%)
+2021-04-28T12:37:25.910+0530	[##############..........]  covid.cases  144000/236019  (61.0%)
+2021-04-28T12:37:26.909+0530	[#################.......]  covid.cases  168000/236019  (71.2%)
+2021-04-28T12:37:27.909+0530	[##################......]  covid.cases  184000/236019  (78.0%)
+2021-04-28T12:37:28.910+0530	[#####################...]  covid.cases  208000/236019  (88.1%)
+2021-04-28T12:37:29.909+0530	[######################..]  covid.cases  224000/236019  (94.9%)
+2021-04-28T12:37:30.395+0530	[########################]  covid.cases  236019/236019  (100.0%)
+2021-04-28T12:37:30.395+0530	exported 236019 records
